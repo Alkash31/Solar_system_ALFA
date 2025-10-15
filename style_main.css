@@ -1,0 +1,10 @@
+body{
+    font-family: 'Press Start 2P';
+    font-weight: 200;
+    background-image: url("fon.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+}
