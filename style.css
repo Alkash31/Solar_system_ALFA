@@ -1,0 +1,44 @@
+body{
+    font-family: 'Press Start 2P';
+    font-weight: 200;
+    background-image: url("fon.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+}
+
+.ok-button {
+    font-family: 'Press Start 2P';
+    font-weight: 500;
+    font-size: medium;
+    position: absolute;  
+    top: 500px;          
+    left: 700px;         
+    width: 120px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(85, 0, 204);
+    }
+
+.fon-text{
+    background-color: rgba(143, 6, 161, 0.74);
+    width: 600px;
+    height: 200px;
+    border-radius: 10px;         
+    padding: 90px;
+    border-radius: 10px;
+    color: white;
+    position: absolute;
+    top: 100px; 
+    left: 350px;
+}
+p{
+    text-align: center;
+}
+h3{
+    text-align: center;
+}
