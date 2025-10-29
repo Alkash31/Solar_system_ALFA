@@ -1,0 +1,6 @@
+my_element = document.getElementById('sun_baza');
+my_element.addEventListener("click", function (e) {
+    console.log(this.className); // logs the className of my_element
+    console.log(e.currentTarget === this); // logs `true`
+    alert('аііф');
+  });

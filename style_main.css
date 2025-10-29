@@ -1,10 +1,97 @@
-body{
+body {
     font-family: 'Press Start 2P';
     font-weight: 200;
-    background-image: url("fon.jpg");
+    background-image: url("background-image/fon.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     position: relative;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+#sun_baza {
+    animation: spin 60s linear infinite;
+    cursor: pointer;
+    height: 100px;
+    width: 100px;   
+}
+
+#mercury {
+  animation: spin 20s linear infinite;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+}
+
+#venus {
+  animation: spin 20s linear infinite;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+}
+
+#earth {
+  animation: spin 20s linear infinite;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+}
+
+#mars {
+  animation: spin 20s linear infinite;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+}
+
+#jupiter {
+  animation: spin 20s linear infinite;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+}
+
+#saturn {
+  animation: spin 20s linear infinite;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+}
+
+#circle_saturn{
+  animation: spin 20s linear infinite;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+}
+
+
+#uranus{
+  animation: spin 250s linear infinite;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+}
+
+
+#neptune{
+  animation: spin 20s linear infinite;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+}
+
+
+#pluton {
+animation: spin 20s linear infinite;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
 }
