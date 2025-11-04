@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solar system</title>
-    <link rel="stylesheet" href="style_main.css">
+    <link rel="stylesheet" href="style_main.css"> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- тоже шрифт-->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> <!--шрифт-->
     
 </head>
 <body>
     <img src="texture_planet/x_sun.png" alt="" id="sun_baza">
+    <audio id="sun_ignite">
+        <source  src="sounds/sun_ignite.mp3">
+    </audio>
     <img src="texture_planet/x_mercury.png" alt="" id="mercury">
     <img src="texture_planet/x_venus.png" alt="" id="venus">
     <img src="texture_planet/x_earth.png" alt="" id="earth">
@@ -22,6 +25,7 @@
     <img src="texture_planet/x_uran.png" alt="" id="uranus">
     <img src="texture_planet/x_neptun.png" alt="" id="neptune">
     <img src="texture_planet/x_pluton.png" alt="" id="pluton">
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js", src="scrypt_main.js"></script>
+    <script src="scrypt_main.js"></script> <!--тут піклоючення джес і гсап-->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 </body>
 </html>

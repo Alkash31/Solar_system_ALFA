@@ -20,7 +20,7 @@ body {
     animation: spin 60s linear infinite;
     cursor: pointer;
     height: 100px;
-    width: 100px;   
+    width: 100px;
 }
 
 #mercury {
