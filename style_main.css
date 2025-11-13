@@ -19,36 +19,39 @@ body {
 #sun_baza {
     animation: spin 60s linear infinite;
     cursor: pointer;
-    height: 100px;
-    width: 100px;
+    height: 90px;
+    width: 90px;
+    position: absolute;
+    top: 300px;
+    left: 300px;
 }
 
 #mercury {
   animation: spin 20s linear infinite;
   cursor: pointer;
-  height: 40px;
-  width: 40px;
+  height: 25px;
+  width: 25px;
 }
 
 #venus {
   animation: spin 20s linear infinite;
   cursor: pointer;
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
 }
 
 #earth {
   animation: spin 20s linear infinite;
   cursor: pointer;
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
 }
 
 #mars {
   animation: spin 20s linear infinite;
   cursor: pointer;
-  height: 40px;
-  width: 40px;
+  height: 28px;
+  width: 28px;
 }
 
 #jupiter {
@@ -61,37 +64,29 @@ body {
 #saturn {
   animation: spin 20s linear infinite;
   cursor: pointer;
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
 }
-
-#circle_saturn{
-  animation: spin 20s linear infinite;
-  cursor: pointer;
-  height: 40px;
-  width: 40px;
-}
-
 
 #uranus{
   animation: spin 250s linear infinite;
   cursor: pointer;
-  height: 40px;
-  width: 40px;
+  height: 32px;
+  width: 32px;
 }
 
 
 #neptune{
   animation: spin 20s linear infinite;
   cursor: pointer;
-  height: 40px;
-  width: 40px;
+  height: 38px;
+  width: 38px;
 }
 
 
 #pluton {
 animation: spin 20s linear infinite;
   cursor: pointer;
-  height: 40px;
-  width: 40px;
+  height: 20px;
+  width: 20px;
 }
