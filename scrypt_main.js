@@ -1,43 +1,54 @@
-const sun = document.getElementById("sun_baza");
-  const sound_sun = document.getElementById("sun_ignite");
+// ====== ПІДКЛЮЧЕННЯ ЗВУКІВ ======
+const sounds = {
+  sun:     document.getElementById("sun_ignite"),
+  mercury: document.getElementById("mercury_sound"),
+  venus:   document.getElementById("venus_sound"),
+  earth:   document.getElementById("earth_sound"),
+  mars:    document.getElementById("mars_sound"),
+  jupiter: document.getElementById("jupiter_sound"),
+  saturn:  document.getElementById("saturn_sound"),
+  uranus:  document.getElementById("uranus_sound"),
+  neptune: document.getElementById("neptune_sound"),
+  pluton:  document.getElementById("pluton_sound")
+};
 
-  sun.addEventListener("click", () => {
-    sound_sun.currentTime = 0;
-    sound_sun.play();
-  });
-  
-  const venus = document.getElementById("venus");
-  const sound_venus = document.getElementById("venus_sound");
+// ====== ЕЛЕМЕНТИ ПЛАНЕТ ======
+const clickablePlanets = {
+  sun:     document.getElementById("sun_baza"),
+  mercury: document.getElementById("mercury"),
+  venus:   document.getElementById("venus"),
+  earth:   document.getElementById("earth"),
+  mars:    document.getElementById("mars"),
+  jupiter: document.getElementById("jupiter"),
+  saturn:  document.getElementById("saturn"),
+  uranus:  document.getElementById("uranus"),
+  neptune: document.getElementById("neptune"),
+  pluton:  document.getElementById("pluton")
+};
 
-  venus.addEventListener("click", () => {
-    sound_venus.currentTime = 0;
-    sound_venus.play();
-  });
-  
-  const earth = document.getElementById("earth");
-  const sound_earth = document.getElementById("earth_sound");
+// ====== ВІДТВОРЕННЯ ЗВУКУ БЕЗ НАКЛАДАННЯ ======
+Object.keys(clickablePlanets).forEach(id => {
+  const planet = clickablePlanets[id];
+  const sound = sounds[id];
 
-  earth.addEventListener("click", () => {
-    sound_earth.currentTime = 0;
-    sound_earth.play();
-  });
-  
-  const mars = document.getElementById("mars");
-  const sound_mars = document.getElementById("mars_sound");
+  if (planet && sound) {
+    planet.addEventListener("click", () => {
 
-  mars.addEventListener("click", () => {
-    sound_mars.currentTime = 0;
-    sound_mars.play();
-  });
-  
-  const jupiter = document.getElementById("jupiter");
-  const sound_jupiter = document.getElementById("jupiter_sound");
+      // зупиняємо всі інші звуки
+      Object.values(sounds).forEach(s => {
+        if (s) {
+          s.pause();
+          s.currentTime = 0;
+        }
+      });
 
-  sun.addEventListener("click", () => {
-    sound.currentTime = 0;
-    sound.play();
-  });
-   
+      // запускаємо звук обраної планети
+      sound.currentTime = 0;
+      sound.play();
+    });
+  }
+});
+
   window.onload = function() {
     const sun = document.getElementById('sun_baza');
   
