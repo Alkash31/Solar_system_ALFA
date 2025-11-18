@@ -31,9 +31,9 @@ body {
     cursor: pointer;
     height: 90px;
     width: 90px;
-    position: absolute;
-    top: 300px;
-    left: 300px;
+    position: fixed;
+    top: 40%;
+    left: 25%
 }
 
 #mercury {
