@@ -1,4 +1,4 @@
-// ====== ПІДКЛЮЧЕННЯ ЗВУКІВ ======
+
 const sounds = {
   sun:     document.getElementById("sun_ignite"),
   mercury: document.getElementById("mercury_sound"),
@@ -12,7 +12,6 @@ const sounds = {
   pluton:  document.getElementById("pluton_sound")
 };
 
-// ====== ЕЛЕМЕНТИ ПЛАНЕТ ======
 const clickablePlanets = {
   sun:     document.getElementById("sun_baza"),
   mercury: document.getElementById("mercury"),
@@ -26,7 +25,6 @@ const clickablePlanets = {
   pluton:  document.getElementById("pluton")
 };
 
-// ====== ВІДТВОРЕННЯ ЗВУКУ БЕЗ НАКЛАДАННЯ ======
 Object.keys(clickablePlanets).forEach(id => {
   const planet = clickablePlanets[id];
   const sound = sounds[id];
@@ -34,7 +32,7 @@ Object.keys(clickablePlanets).forEach(id => {
   if (planet && sound) {
     planet.addEventListener("click", () => {
 
-      // зупиняємо всі інші звуки
+      // зупиняє всі інші звуки
       Object.values(sounds).forEach(s => {
         if (s) {
           s.pause();
@@ -42,7 +40,7 @@ Object.keys(clickablePlanets).forEach(id => {
         }
       });
 
-      // запускаємо звук обраної планети
+      // запуск звука планети
       sound.currentTime = 0;
       sound.play();
     });
@@ -53,14 +51,14 @@ Object.keys(clickablePlanets).forEach(id => {
     const sun = document.getElementById('sun_baza');
   
     const planets = [
-      { id: 'mercury', radius: 45, speed: 0.01 },
-      { id: 'venus', radius: 75, speed: 0.0075 },
-      { id: 'earth', radius: 100, speed: 0.006 },
-      { id: 'mars', radius: 130, speed: 0.005 },
-      { id: 'jupiter', radius: 170, speed: 0.004 },
-      { id: 'saturn', radius: 210, speed: 0.003 },
-      { id: 'uranus', radius: 250, speed: 0.0025 },
-      { id: 'neptune', radius: 290, speed: 0.002 },
+      { id: 'mercury', radius: 45, speed: 0.0011 },
+      { id: 'venus', radius: 75, speed: 0.0015 },
+      { id: 'earth', radius: 100, speed: 0.0016 },
+      { id: 'mars', radius: 130, speed: 0.0015 },
+      { id: 'jupiter', radius: 170, speed: 0.0014 },
+      { id: 'saturn', radius: 210, speed: 0.0014 },
+      { id: 'uranus', radius: 250, speed: 0.0015 },
+      { id: 'neptune', radius: 290, speed: 0.0012 },
       { id: 'pluton', radius: 320, speed: 0.0015 }
     ];
   
