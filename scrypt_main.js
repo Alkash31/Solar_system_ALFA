@@ -1,4 +1,3 @@
-
 const sounds = {
   sun:     document.getElementById("sun_ignite"),
   mercury: document.getElementById("mercury_sound"),
@@ -136,3 +135,5 @@ Object.keys(planetInfo).forEach(id => {
     });
   }
 });
+
+//ХОЛА
