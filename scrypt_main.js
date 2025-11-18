@@ -37,94 +37,67 @@ const sun = document.getElementById("sun_baza");
     sound.currentTime = 0;
     sound.play();
   });
+   
+  window.onload = function() {
+    const sun = document.getElementById('sun_baza');
   
-window.onload = function() {
-  const sun = document.getElementById('sun_baza');
-
-  const planets = [
-    { id: 'mercury', radius: 45, speed: 0.01 },
-    { id: 'venus', radius: 75, speed: 0.0075 },
-    { id: 'earth', radius: 100, speed: 0.006 },
-    { id: 'mars', radius: 130, speed: 0.005 },
-    { id: 'jupiter', radius: 170, speed: 0.004 },
-    { id: 'saturn', radius: 210, speed: 0.003 },
-    { id: 'uranus', radius: 250, speed: 0.0025 },
-    { id: 'neptune', radius: 290, speed: 0.002 },
-    { id: 'pluton', radius: 320, speed: 0.0015 }
-  ];
-
-  // рандомні місця початку анімації планет
-  planets.forEach(p => {
-    p.el = document.getElementById(p.id);
-    p.angle = Math.random() * Math.PI * 2;
-    p.incl = 0.85 + Math.random() * 0.3;
-
-    if (p.el) p.el.style.position = 'absolute';
-  });
-
-  // Коорди сонця
-  function getSunCenter() {
-    const rect = sun.getBoundingClientRect();
-    return {
-      x: rect.left + rect.width / 2,
-      y: rect.top + rect.height / 2
-    };
-  }
-
-  // Основна функція анімації
-  function animate() {
-    const center = getSunCenter();
-
+    const planets = [
+      { id: 'mercury', radius: 45, speed: 0.01 },
+      { id: 'venus', radius: 75, speed: 0.0075 },
+      { id: 'earth', radius: 100, speed: 0.006 },
+      { id: 'mars', radius: 130, speed: 0.005 },
+      { id: 'jupiter', radius: 170, speed: 0.004 },
+      { id: 'saturn', radius: 210, speed: 0.003 },
+      { id: 'uranus', radius: 250, speed: 0.0025 },
+      { id: 'neptune', radius: 290, speed: 0.002 },
+      { id: 'pluton', radius: 320, speed: 0.0015 }
+    ];
+  
     planets.forEach(p => {
-      // оновлює кут
-      p.angle += p.speed;
-
-      const x = center.x + Math.cos(p.angle) * p.radius;
-      const y = center.y + Math.sin(p.angle) * p.radius * p.incl;
-
-      const w = (p.el && p.el.offsetWidth) ? p.el.offsetWidth : 20;
-      const h = (p.el && p.el.offsetHeight) ? p.el.offsetHeight : 20;
-
-      if (p.el) {
-        p.el.style.left = (x - w / 2) + 'px';
-        p.el.style.top = (y - h / 2) + 'px';
-      }
+      p.el = document.getElementById(p.id);
+      p.angle = Math.random() * Math.PI * 2;
+      p.incl = 0.85 + Math.random() * 0.3;
+      if (p.el) p.el.style.position = 'absolute';
     });
-    requestAnimationFrame(animate);
-  }
-  animate(); 
-};
-
-const viewedList = [];
-const viewedSet = new Set(JSON.parse(localStorage.getItem("viewedPlanets") || "[]"));
-
-const ALL_PLANETS = [
-  "sun_baza",
-  "mercury", "venus", "earth",
-  "mars", "jupiter", "saturn",
-  "uranus", "neptune", "pluton"
-];
-
-
-// прогрес бар
-function updateProgressBar() {
-  const viewed = viewedSet.size;
-  const total = ALL_PLANETS.length;
-  const percent = (viewed / total) * 100;
-  document.getElementById("Pbar").style.width = percent + "%";
-  document.getElementById("Ptext").textContent = viewed + " / " + total;
-}
-
-
-function registerView(id) {
-  if (!viewedSet.has(id)) {
-    viewedSet.add(id);
-    localStorage.setItem("viewedPlanets", JSON.stringify([...viewedSet]));
-    updateProgressBar();
-  }
-}
-
-
+  
+    function getSunCenter() {
+      const rect = sun.getBoundingClientRect();
+      return {
+        x: rect.left + rect.width / 2,
+        y: rect.top + rect.height / 2
+      };
+    }
+  
+    const pauseImg = "texture_menu/pause.jpeg";
+    const playImg = "texture_menu/play.jpeg";
+    const pauseBtnImg = document.getElementById("pauseBtn");
+  
+    let isPaused = false;
+  
+    pauseBtnImg.addEventListener("click", () => {
+      isPaused = !isPaused;
+      pauseBtnImg.src = isPaused ? playImg : pauseImg;
+    });
+  
+    function animate() {
+      if (!isPaused) {
+        const center = getSunCenter();
+        planets.forEach(p => {
+          p.angle += p.speed;
+          const x = center.x + Math.cos(p.angle) * p.radius;
+          const y = center.y + Math.sin(p.angle) * p.radius * p.incl;
+          const w = p.el.offsetWidth;
+          const h = p.el.offsetHeight;
+          p.el.style.left = (x - w / 2) + 'px';
+          p.el.style.top = (y - h / 2) + 'px';
+        });
+      }
+      requestAnimationFrame(animate);
+    }
+  
+    animate();
+  };
+  
 const infoPanel = document.getElementById("infoPanel");
 const infoTitle = document.getElementById("infoTitle");
 const infoText = document.getElementById("infoText");
