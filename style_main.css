@@ -90,3 +90,62 @@ animation: spin 20s linear infinite;
   height: 20px;
   width: 20px;
 }
+
+#infoPanel {
+  width: 320px;
+  background: rgba(95, 15, 206, 0.645);
+  color: white;
+  padding: 20px;
+
+  position: fixed;
+  right: 20px;
+
+  top: 50%;
+  transform: translateY(-50%);
+
+  border-radius: 12px;
+  box-shadow: -4px 0 12px rgba(91, 4, 167, 0.605);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+}
+
+#infoPanel h2 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+#infoPanel p {
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+
+#Pcontainer {
+  width: 200px;
+  height: 12px;
+  background: rgba(145, 27, 209, 0.2);
+  border-radius: 6px;
+  margin: 20px;
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  backdrop-filter: blur(3px);
+}
+
+#Pbar {
+  height: 100%;
+  width: 0%;
+  background: #00e5ffcf;
+  border-radius: 6px;
+  transition: width 0.3s ease;
+}
+
+#Ptext {
+  position: fixed;
+  left: 20px;
+  bottom: 40px;
+  color: white;
+  font-family: 'Press Start 2P';
+  font-size: 12px;
+}
+

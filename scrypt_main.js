@@ -6,14 +6,6 @@ const sun = document.getElementById("sun_baza");
     sound_sun.play();
   });
   
-  const mercury = document.getElementById("mercury");
-  const sound_mercury = document.getElementById("");
-
-  mercury.addEventListener("click", () => {
-    sound_mercury.currentTime = 0;
-    sound_mercury.play();
-  });
-  
   const venus = document.getElementById("venus");
   const sound_venus = document.getElementById("venus_sound");
 
@@ -46,42 +38,9 @@ const sun = document.getElementById("sun_baza");
     sound.play();
   });
   
-  const saturn = document.getElementById("saturn");
-  const sound_saturn = document.getElementById("");
-
-  saturn.addEventListener("click", () => {
-    sound_saturn.currentTime = 0;
-    sound_saturn.play();
-  });
-  
-  const uranus = document.getElementById("uranus");
-  const sound_uranus = document.getElementById("");
-
-  uranus.addEventListener("click", () => {
-    sound_uranus.currentTime = 0;
-    sound_uranus.play();
-  });
-  
-  const neptune = document.getElementById("neptune");
-  const sound_neptune = document.getElementById("");
-
-  neptune.addEventListener("click", () => {
-    sound_neptune.currentTime = 0;
-    sound_neptune.play();
-  });
-  
-  const pluton = document.getElementById("pluton");
-  const sound_pluton = document.getElementById("");
-
-  pluton.addEventListener("click", () => {
-    sound_pluton.currentTime = 0;
-    sound_pluton.play();
-  });
-  
 window.onload = function() {
   const sun = document.getElementById('sun_baza');
 
-  // Масив планет із меншими швидкостями обертання
   const planets = [
     { id: 'mercury', radius: 45, speed: 0.01 },
     { id: 'venus', radius: 75, speed: 0.0075 },
@@ -120,11 +79,9 @@ window.onload = function() {
       // оновлює кут
       p.angle += p.speed;
 
-      // щоб зробити еліптичну орбіту
       const x = center.x + Math.cos(p.angle) * p.radius;
       const y = center.y + Math.sin(p.angle) * p.radius * p.incl;
 
-      // розміщення планети
       const w = (p.el && p.el.offsetWidth) ? p.el.offsetWidth : 20;
       const h = (p.el && p.el.offsetHeight) ? p.el.offsetHeight : 20;
 
@@ -133,9 +90,67 @@ window.onload = function() {
         p.el.style.top = (y - h / 2) + 'px';
       }
     });
-
     requestAnimationFrame(animate);
   }
-
-  animate(); // запуск анімації
+  animate(); 
 };
+
+const viewedList = [];
+const viewedSet = new Set(JSON.parse(localStorage.getItem("viewedPlanets") || "[]"));
+
+const ALL_PLANETS = [
+  "sun_baza",
+  "mercury", "venus", "earth",
+  "mars", "jupiter", "saturn",
+  "uranus", "neptune", "pluton"
+];
+
+
+// прогрес бар
+function updateProgressBar() {
+  const viewed = viewedSet.size;
+  const total = ALL_PLANETS.length;
+  const percent = (viewed / total) * 100;
+  document.getElementById("Pbar").style.width = percent + "%";
+  document.getElementById("Ptext").textContent = viewed + " / " + total;
+}
+
+
+function registerView(id) {
+  if (!viewedSet.has(id)) {
+    viewedSet.add(id);
+    localStorage.setItem("viewedPlanets", JSON.stringify([...viewedSet]));
+    updateProgressBar();
+  }
+}
+
+
+const infoPanel = document.getElementById("infoPanel");
+const infoTitle = document.getElementById("infoTitle");
+const infoText = document.getElementById("infoText");
+
+const planetInfo = {
+  sun_baza: { title: "Сонце", text: "Сонце – це зірка середнього розміру, що становить близько 99.86% маси Сонячної системи і складається переважно з водню (близько 74% та гелію (близько 24%). " },
+  mercury: { title: "Меркурій", text: "Перша планета у системі" },
+  venus:   { title: "Венера",   text: "Друга планета СОнячної системи деякі кажуть що це зла близнючка Землі" },
+  earth:   { title: "Земля",    text: "Наша рідна планета" },
+  mars:    { title: "Марс",     text: "Марс зі своєю горою Олімп!" },
+  jupiter: { title: "Юпітер",   text: "Газовй гігант" },
+  saturn:  { title: "Сатурн",   text: "Має кільце " },
+  uranus:  { title: "Уран",     text: "Інакший нахил осі." },
+  neptune: { title: "Нептун",   text: "Далека синя планета" },
+  pluton:  { title: "Плутон",   text: "Плутон відкрив американський астроном Клайд Томбо 18 лютого 1930 року в обсерваторії Ловелла. Згодом, у 2006 року Плутон визначили як карликовою планетою" }
+};
+
+//цикл
+Object.keys(planetInfo).forEach(id => {
+  const planet = document.getElementById(id);
+  if (planet) {
+    planet.addEventListener("click", () => {
+      infoTitle.textContent = planetInfo[id].title;
+      infoText.textContent = planetInfo[id].text;
+      registerView(id);
+      updateProgressBar();
+    });
+  }
+});
