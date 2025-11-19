@@ -9,26 +9,42 @@ body{
     position: relative;
 }
 
-.ok-button {
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease forwards;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  
+
+#ok-button {
     font-family: 'Press Start 2P';
     font-weight: 500;
     font-size: 14px;
     width: 180px;
     height: 50px;
-    margin: 20px auto;  /* центрує кнопку */
+    margin: 20px auto;
     display: block;
     border-radius: 10px;
     cursor: pointer;
     color: white;
     background-color: rgb(85, 0, 204);
+    box-shadow: 0 0 30px rgba(85, 0, 204, 0.916);
 }
 
-    .ok-button:hover {
+    #ok-button:hover {
         background-color:rgb(85, 49, 245);
         }
 
 
-    .fon-text {
+    #fon-text {
     background-color: rgba(143, 6, 161, 0.74);
     font-size: 14px;
     max-width: 600px;
@@ -38,5 +54,6 @@ body{
     border-radius: 10px;
     color: white;
     text-align: center;
-    position: relative; /* тепер не з абсолютом */
+    position: relative;
+    box-shadow: 0 0 30px rgba(85, 0, 204, 0.936);
     }
